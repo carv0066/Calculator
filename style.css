@@ -4,6 +4,40 @@ html {
 }
 
 body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0;
   min-height: 100vh;
+  background-image: linear-gradient(to right, #112036, #0e223f, #092448, #052651, #02285a);
 }
+
+/* Calculator Container */
+.container {
+  width: 350px;
+}
+
+
+.screen {
+  background-color: black;
+  height: 100px;
+  border-radius: 15px 15px 0 0;
+}
+
+.buttons-container {
+  background-color: white;
+  height: 300px;
+  border-radius: 0 0 15px 15px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+
+/* Equal button size */
+.equal {
+  grid-column: 4;
+  grid-row: 2 / 6;
+}
+
+/* Numbers positioning */
+
