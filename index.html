@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -16,27 +16,27 @@
         <div class="calculator-container">
             <!-- Screen for Numbers -->
             <form class="screen">
-                <input type="text" hidden>
+                <input type="text" placeholder="2000000" readonly>
             </form>
             <!-- Buttons for Calculator -->
             <div class="buttons-container">
-                <button type="button">+</button>
-                <button type="button">-</button>
-                <button type="button">x</button>
-                <button type="button">/</button>
-                <button type="button">1</button>
-                <button type="button">2</button>
-                <button type="button">3</button>
-                <button type="button">4</button>
-                <button type="button">5</button>
-                <button type="button">6</button>
-                <button type="button">7</button>
-                <button type="button">8</button>
-                <button type="button">9</button>
-                <button type="button">.</button>
-                <button type="button">0</button>
-                <button type="button">C</button>
-                <button type="button" class="equal">=</button>
+                <button type="button" class="button calc"><i class="fa-solid fa-plus" style="color: #ffffff;"></i></button>
+                <button type="button" class="button calc"><i class="fa-solid fa-minus" style="color: #ffffff;"></i></button>
+                <button type="button" class="button calc"><i class="fa-solid fa-xmark" style="color: #ffffff;"></i></button>
+                <button type="button" class="button calc"><i class="fa-solid fa-divide" style="color: #ffffff;"></i></button>
+                <button type="button" class="button num num1">1</button>
+                <button type="button" class="button num num2">2</button>
+                <button type="button" class="button num num3">3</button>
+                <button type="button" class="button num num4">4</button>
+                <button type="button" class="button num num5">5</button>
+                <button type="button" class="button num num6">6</button>
+                <button type="button" class="button num num7">7</button>
+                <button type="button" class="button num num8">8</button>
+                <button type="button" class="button num num9">9</button>
+                <button type="button" class="button num">.</button>
+                <button type="button" class="button num">0</button>
+                <button type="button" class="button delete">C</button>
+                <button type="button" class="button equal"><i class="fa-solid fa-equals" style="color: #ffffff;"></i></button>
             </div>
         </div>
     </div>
