@@ -27,6 +27,12 @@ body {
   box-shadow: 2px 2px 4px #000000;
 }
 
+.screen-text {
+  color: white;
+  font-size: 55px;
+  padding: 18px 350px;
+}
+
 /* Buttons Styling */
 .buttons-container {
   display: grid;
@@ -62,19 +68,24 @@ body {
 }
 
 
-.equal {
-  background: rgb(48, 210, 48);
-  color: white;
-  font-weight: bolder;
-}
-
 .num {
   background: lightgrey;
   color: black;
 }
 
-.calc {
+.decimal {
+  background: lightgrey;
+  color: black; 
+}
+
+.operator {
   background: gray;
+  color: white;
+  font-weight: bolder;
+}
+
+.equal {
+  background: rgb(48, 210, 48);
   color: white;
   font-weight: bolder;
 }
@@ -126,13 +137,25 @@ input {
   all: unset;
   height: 100px;
   width: 390px;
-  border-radius: 15px 15px 0 0;   /* border: 1px solid red; */
+  border-radius: 15px 15px 0 0;   
   text-align: right;
   font-size: 46px;
   font-weight: 600;
   padding-right: 10px;
 }
 
-input::placeholder{
+input[type=text], input::placeholder{
   color: rgb(255, 255, 255);
 }
+
+/* .value {
+  margin: 0;
+  padding-top: 25px;
+  padding-right: 10px;
+  width: 390px;
+  border-radius: 15px 15px 0 0;
+  text-align: right;
+  font-size: 46px;
+  font-weight: 600;
+  color: white;
+} */
