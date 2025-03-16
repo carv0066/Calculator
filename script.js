@@ -1,52 +1,109 @@
-const calculatorDisplay = document.querySelector(".screen-text");
-const inputBtns = document.querySelectorAll("button");
-const clearBtn = document.querySelector(".delete");
-const decimalBtn = document.querySelector(".decimal")
+const keys = document.querySelectorAll(".key");
+const displayText = document.querySelector(".calc-display");
+const deleteKey = document.querySelector(".delete");
 
-function sendNumberValue (number) {
-    // If current display value is 0, replace it, if not we want to add number
-    const displayValue = calculatorDisplay.textContent;
-    if(displayValue === "0") {
-        calculatorDisplay.textContent = number;
-    } else if(displayValue !== "0") {
-        calculatorDisplay.textContent += number;
-    } 
-    ///Adding a decimal to a number only once.
-    decimalBtn.addEventListener(("click"), () => {
-        //Disable decimal button once the event listener hears one click
-        decimalBtn.disabled = true;
-        console.log("contains decimals")
-    })
+//Functions 
+
+function handleNumberInput (key) {
+
+    if(displayText.textContent === "0" && operatorClicked === false) {
+        firstNumber =  key.textContent;
+        displayText.textContent = firstNumber;
+        console.log("The first Number is:", firstNumber);
+    }
+    else if(displayText.textContent !== "0" && operatorClicked === false) {
+    //If a number is clicked and the current display is not a "0"
+        firstNumber = displayText.textContent += key.textContent;
+        console.log("The first Number is:", firstNumber);
+    }
+    //Replace the display
+    else if(secondNumber === "0" && operatorClicked === true) {
+        secondNumber =  key.textContent;
+        displayText.textContent = secondNumber;
+        console.log("The second Number is:", secondNumber);
+    }
+    else if(displayText.textContent !== "0" && operatorClicked === true) {
+        secondNumber =  displayText.textContent += key.textContent;
+        console.log("The second Number is:", secondNumber);
+    }
 }
 
-//Reset Value when clicking on the clear "C" button
-clearBtn.addEventListener(("click"), () => {
-    //Set the value of the text box back to 0 whenever I click on the clear button
-    calculatorDisplay.textContent = 0;
+function handleDecimalInput (key) {
+    console.log("Adding decimal", displayText.textContent);
+    displayText.textContent += key.textContent
+}
+
+function handleClearInput () {
+    //Reset the calculator
+    displayText.textContent = "0";
+    firstNumber = displayText.textContent;
+    operatorClicked = false;
+    secondNumber = "0";
+    operator = 0;
+}
+
+function handleResultValue () {
+    //Sum
+    if(operator === "+") {
+        let num = Number(firstNumber) + Number(secondNumber)
+        displayText.textContent = num;
+        console.log("The result is", num)
+    }
+    //Substraction
+    if(operator === "-") {
+        let sub = Number(firstNumber) - Number(secondNumber)
+        displayText.textContent = sub;
+        console.log("The result is", sub)
+    }
+    //Multiplication
+    if(operator === "×") {
+        let mult = Number(firstNumber) * Number(secondNumber)
+        displayText.textContent = mult;
+        console.log("The result is", mult)
+    }
+    //Division
+    if(operator === "÷") {
+        let division = Number(firstNumber) / Number(secondNumber)
+        displayText.textContent = division;
+        console.log("The result is", division)
+    }
+}
+
+
+let firstNumber = displayText.textContent;
+let operatorClicked = false;
+let secondNumber = "0";
+let operator = 0;
+//Update the operator inside the eventlistener and define it outside so it doesn't get updated whenever I click another key
+
+//Loop trough all Keys
+keys.forEach(key => {
+    key.addEventListener("click", function() {
+        // If a number is Clicked
+        if(key.classList.contains("number")) {
+            handleNumberInput(key);
+        }
+        //If an Operator is Clicked
+        if(key.classList.contains("operator")) {
+            operatorClicked = true;
+            operator = key.textContent;
+            console.log("the operator is:", operator)
+        }
+        // If a decimal is Clicked
+        if(key.classList.contains("decimal") && !displayText.textContent.includes(".")) {
+            handleDecimalInput(key);
+        }
+        //If the delete key is clicked
+        if(key.classList.contains("delete")) {
+            handleClearInput (key);
+        }
+        //If the equal key is clicked
+        if(key.classList.contains("equal")) {
+            handleResultValue(key);
+        }
+    })
 })
 
 
-//Loop trough all elements and return value
-inputBtns.forEach((btn) => {
-    //Select all buttons with classList of num
-    if(btn.classList.contains("num")) {
-        // add a click event to each button to call function and console.log the value in the html
-        btn.addEventListener(("click"), () => {
-            //the btn.value is what returns as the number
-            sendNumberValue(btn.value)
-        })
-    } else if (btn.classList.contains("operator")) {
-        btn.addEventListener(("click"), () => {
-            sendNumberValue(btn.value)
-        })
-    } else if (btn.classList.contains("decimal")) {
-        btn.addEventListener(("click"), () => {
-            sendNumberValue(btn.value)
-        })
-    }
-});
 
-
-function operations () {
-
-}
+//After I delete the number to start a new one, it just stays at zero, i want to fix that.
