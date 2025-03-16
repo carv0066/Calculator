@@ -9,27 +9,27 @@ function handleNumberInput (key) {
     if(displayText.textContent === "0" && operatorClicked === false) {
         firstNumber =  key.textContent;
         displayText.textContent = firstNumber;
-        console.log("The first Number is:", firstNumber);
+        // console.log("The first Number is:", firstNumber);
     }
     else if(displayText.textContent !== "0" && operatorClicked === false) {
     //If a number is clicked and the current display is not a "0"
         firstNumber = displayText.textContent += key.textContent;
-        console.log("The first Number is:", firstNumber);
+        // console.log("The first Number is:", firstNumber);
     }
     //Replace the display
     else if(secondNumber === "0" && operatorClicked === true) {
         secondNumber =  key.textContent;
         displayText.textContent = secondNumber;
-        console.log("The second Number is:", secondNumber);
+        // console.log("The second Number is:", secondNumber);
     }
     else if(displayText.textContent !== "0" && operatorClicked === true) {
         secondNumber =  displayText.textContent += key.textContent;
-        console.log("The second Number is:", secondNumber);
+        // console.log("The second Number is:", secondNumber);
     }
 }
 
 function handleDecimalInput (key) {
-    console.log("Adding decimal", displayText.textContent);
+    // console.log("Adding decimal", displayText.textContent);
     displayText.textContent += key.textContent
 }
 
@@ -47,25 +47,25 @@ function handleResultValue () {
     if(operator === "+") {
         let num = Number(firstNumber) + Number(secondNumber)
         displayText.textContent = num;
-        console.log("The result is", num)
+        // console.log("The result is", num)
     }
     //Substraction
     if(operator === "-") {
         let sub = Number(firstNumber) - Number(secondNumber)
         displayText.textContent = sub;
-        console.log("The result is", sub)
+        // console.log("The result is", sub)
     }
     //Multiplication
     if(operator === "×") {
         let mult = Number(firstNumber) * Number(secondNumber)
         displayText.textContent = mult;
-        console.log("The result is", mult)
+        // console.log("The result is", mult)
     }
     //Division
     if(operator === "÷") {
         let division = Number(firstNumber) / Number(secondNumber)
         displayText.textContent = division;
-        console.log("The result is", division)
+        // console.log("The result is", division)
     }
 }
 
@@ -87,7 +87,7 @@ keys.forEach(key => {
         if(key.classList.contains("operator")) {
             operatorClicked = true;
             operator = key.textContent;
-            console.log("the operator is:", operator)
+            // console.log("the operator is:", operator)
         }
         // If a decimal is Clicked
         if(key.classList.contains("decimal") && !displayText.textContent.includes(".")) {
@@ -103,7 +103,3 @@ keys.forEach(key => {
         }
     })
 })
-
-
-
-//After I delete the number to start a new one, it just stays at zero, i want to fix that.
